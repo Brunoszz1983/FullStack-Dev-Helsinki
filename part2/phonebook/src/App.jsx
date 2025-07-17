@@ -49,7 +49,7 @@ const App = () => {
   const handleDelete = (id,name) => {
     if (window.confirm(`Do you really want to delete ${name}?`)) {
       axios
-        .delete(`http://localhost:3002/persons/${id}`)
+        .delete(`/persons/${id}`)
         .then(() => {
           setPersons(persons.filter(person => person.id !== id))
         })
@@ -75,7 +75,7 @@ const App = () => {
 
                 phonesService
                 axios
-                .put(`http://localhost:3002/persons/${personToUpdate.id}`, updatedPerson)
+                .put(`/persons/${personToUpdate.id}`, updatedPerson)
                 .then(returnedPerson => {
                   setPersons(persons.map(p => p.id !== personToUpdate.id ? p : returnedPerson))
                   setNewName('')
